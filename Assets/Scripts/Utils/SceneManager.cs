@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 
-public class SceneManager : StaticInstance
+public class SceneManager : StaticInstance<SceneManager>
     {
         public void ChangeCurrentScene(string sceneName) => UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
 
