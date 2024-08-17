@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.Pool;
 
 public static class Helper2D
 {
-    ## Vector Operations
+    // Vector Operations
 
     public static Vector2 GetRandomVector2(float minX, float maxX, float minY, float maxY)
     {
@@ -14,18 +15,18 @@ public static class Helper2D
         return (target - origin).normalized;
     }
 
-    ## Object Pooling
+    // Object Pooling
 
-    public static GameObject GetPooledObject(GameObject prefab, Vector3 position, Quaternion rotation)
-    {
-        GameObject obj = ObjectPool.Instance.GetPooledObject(prefab);
-        obj.transform.position = position;
-        obj.transform.rotation = rotation;
-        obj.SetActive(true);
-        return obj;
-    }
+    // public static GameObject GetPooledObject(GameObject prefab, Vector3 position, Quaternion rotation)
+    // {
+    //     GameObject obj = ObjectPool<>.Instance.GetPooledObject(prefab);
+    //     obj.transform.position = position;
+    //     obj.transform.rotation = rotation;
+    //     obj.SetActive(true);
+    //     return obj;
+    // }
 
-    ## Collision Detection
+    // Collision Detection
 
     public static bool IsOverlapping(Collider2D collider1, Collider2D collider2)
     {
@@ -37,7 +38,7 @@ public static class Helper2D
         return Physics2D.OverlapAreaAll(collider.bounds.min, collider.bounds.max, layerMask);
     }
 
-    ## Math Helpers
+    // Math Helpers
 
     public static float GetAngleFromVector(Vector2 vector)
     {
@@ -49,7 +50,7 @@ public static class Helper2D
         return new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
     }
 
-    ## Misc Utilities
+    // Misc Utilities
 
     public static void DestroyChildren(Transform parent)
     {
